@@ -4,6 +4,7 @@ import { windowHeight ,windowWidth} from '../../utils/dimensions';
 export const styles = StyleSheet.create({
 
     earningCardWrapper:{
+        
         backgroundColor:Colors.primaryColors.white,
         height:windowHeight/5,
         marginHorizontal:8,
@@ -15,11 +16,12 @@ export const styles = StyleSheet.create({
         marginVertical:10
     },mainHeading:{
         flexDirection:'row',
+        alignItems:'center',
         justifyContent:'space-around',
         gap:10,
         width:'100%',
-        paddingLeft:10,
-        paddingRight:3
+        // paddingLeft:10,
+        // paddingRight:3
     }
     ,textEarning:{
         color:Colors.primaryColors.blue,

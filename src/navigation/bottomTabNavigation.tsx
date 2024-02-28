@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import strings from '../utils/strings';
 import React from 'react';
-// import MenuScreen from '../screens/menuScreen/MenuScreen';
+import InProgressScreen from '../screens/inProgressScreen/InProgressScreen';
 
 import {Image} from 'react-native';
 import {Images} from '../assets/images';
@@ -11,7 +11,7 @@ import {Colors} from '../utils/colors';
 // import MessageScreen from '../screens/messageScreen/MessageScreen';
 import AppConfig from '../utils/config';
 // import ProfileScreen from '../screens/profileScreen/ProfileScreen';
-
+import TopTabsNavigation from './topTabNavigation';
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
@@ -61,7 +61,7 @@ const BottomNavigation = () => {
           ),
         }}
         name={strings.inProgress}
-        component={HomeScreen}
+        component={TopTabsNavigation}
       />
     
       <Tab.Screen

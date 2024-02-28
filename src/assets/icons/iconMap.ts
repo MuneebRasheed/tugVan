@@ -82,10 +82,56 @@ import tugvanLogo from './tugvanLogo2.svg'
 import tugVanCompleted from './tugVanCompleted.svg'
 import tugVanInprogress from './tugVanInprogress.svg'
 import tugVanRequest from './tugVanRequest.svg'
+
+import tugVanBattery from './tugVanBattery.svg'
+import tugVanCross from './tugVanCross.svg'
+import tugVanDistance from './tugVanDistance.svg'
+import tugVanFuel from './tugVanFuel.svg'
+import tugVanStar from './tugVanStar.svg'
+import tugVanTyre from './tugVanTyre.svg'
+import tugVanLocation from './tugVanLocation.svg'
+import tugVanCircle from './tugVanCircle.svg'
+import tugVanFare from './tugVanFare.svg'
 export const iconMapping = {
+  tugVanTyre: createElement(tugVanTyre, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanLocation: createElement(tugVanLocation, {
+    height: 15,
+    width: 15,
+  }), 
+  tugVanCircle: createElement(tugVanCircle, {
+    height: 15,
+    width: 15,
+  }),
+  tugVanFuel: createElement(tugVanFuel, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanStar: createElement(tugVanStar, {
+    height: 15,
+    width: 15,
+  }),
+  tugVanCross: createElement(tugVanCross, {
+    height: 20,
+    width: 20,
+  }),
+  tugVanFare: createElement(tugVanFare, {
+    height: 20,
+    width: 20,
+  }),
+  tugVanDistance: createElement(tugVanDistance, {
+    height: 15,
+    width: 15,
+  }),
   tugVanCompleted: createElement(tugVanCompleted, {
     height: 25,
     width: 25,
+  }),
+  tugVanBattery: createElement(tugVanBattery, {
+    height: 55,
+    width: 55,
   }),
   tugVanInprogress: createElement(tugVanInprogress, {
     height: 25,
