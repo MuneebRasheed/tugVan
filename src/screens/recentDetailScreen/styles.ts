@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: config.primaryColor,
   },
   mapStyle: {
+    marginTop:windowHeight / 17,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -72,5 +73,8 @@ textViewAll:{
     color:Colors.primaryColors.blue,
     fontWeight:'800',
     fontSize:16
+},header:{backgroundColor:config.primaryColor,height:50,alignItems:'center',flexDirection:'row',paddingLeft:10,gap:10},HeadingText:{
+  color:Colors.primaryColors.white,
+  fontSize:18,fontWeight:'600'
 }
 });

@@ -19,6 +19,8 @@ export default {
     product:"Products",
     wrongFuel:"Wrong Fuel",
     batteryReplacment:"Battery Replacement",
-    offerYourFare:"Offer Your Fare"
+    offerYourFare:"Offer Your Fare",
+    bookingDetails:"Booking Details",
+    fare:"Fare"
 
 }

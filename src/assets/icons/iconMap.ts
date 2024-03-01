@@ -92,6 +92,8 @@ import tugVanTyre from './tugVanTyre.svg'
 import tugVanLocation from './tugVanLocation.svg'
 import tugVanCircle from './tugVanCircle.svg'
 import tugVanFare from './tugVanFare.svg'
+import tugVanLeftArrow from './tugVanLeftArrow.svg'
+import tugVanPaymentCardBlue from './tugVanPaymentCardBlue.svg'
 export const iconMapping = {
   tugVanTyre: createElement(tugVanTyre, {
     height: 55,
@@ -104,6 +106,14 @@ export const iconMapping = {
   tugVanCircle: createElement(tugVanCircle, {
     height: 15,
     width: 15,
+  }),
+  tugVanPaymentCardBlue: createElement(tugVanPaymentCardBlue, {
+    height: 15,
+    width: 15,
+  }),
+  tugVanLeftArrow: createElement(tugVanLeftArrow, {
+    height: 25,
+    width: 25,
   }),
   tugVanFuel: createElement(tugVanFuel, {
     height: 55,

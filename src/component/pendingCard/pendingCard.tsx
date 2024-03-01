@@ -3,9 +3,9 @@ import React, {FC} from 'react';
 import {styles} from './styles';
 import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
-import {TaskCardPropsTypes} from './types';
+import {pendingCardPropsTypes} from './types';
 import { useNavigation } from '@react-navigation/native';
-const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,distance}) => {
+const PendingCard: FC<pendingCardPropsTypes> = ({icon, name, location,star,distance}) => {
   const navigation = useNavigation(); 
   return (
     <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('RecentDetailScreen')}>
@@ -28,15 +28,21 @@ const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,dista
           </View>
         </View>
         <View style={styles.line}></View>
+        <View style={styles.secondRow}>
         <TouchableOpacity style={styles.directionRow}    >
           {iconMapping.tugVanStar}
           <Text style={styles.textViewAll}>
             {strings?.product+':'+star}
           </Text>
         </TouchableOpacity>
+        <View style={styles.directionRow}>
+            {iconMapping.tugVanPaymentCardBlue}
+            <Text style={styles.textPayment}>{strings?.fare+': £42'}</Text>
+          </View>
+          </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default InProgressCard;
+export default PendingCard;

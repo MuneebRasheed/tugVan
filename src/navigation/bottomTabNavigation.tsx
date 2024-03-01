@@ -12,6 +12,7 @@ import {Colors} from '../utils/colors';
 import AppConfig from '../utils/config';
 // import ProfileScreen from '../screens/profileScreen/ProfileScreen';
 import TopTabsNavigation from './topTabNavigation';
+import StackNavigation from './stackNavigation';
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
@@ -61,7 +62,7 @@ const BottomNavigation = () => {
           ),
         }}
         name={strings.inProgress}
-        component={TopTabsNavigation}
+        component={StackNavigation}
       />
     
       <Tab.Screen
