@@ -5,6 +5,7 @@ import {Colors} from '../../utils/colors';
 import {styles} from './styles';
 import PendingCard from '../../component/pendingCard/pendingCard';
 import { PendingData } from '../../utils/dummyData';
+import SearchInput from '../../component/searchInput/SearchInput';
 const PendingScreen: FC<PendingScreenPropsTypes> = () => {
   return (
   
@@ -13,6 +14,7 @@ const PendingScreen: FC<PendingScreenPropsTypes> = () => {
         backgroundColor={Colors.primaryColors.lightGrey}
         barStyle={'dark-content'}
       />
+         <SearchInput/>
         <ScrollView>
     {
       PendingData.map((val,index)=><PendingCard  icon={val?.icon} name={val?.name} location={val?.location}star={val?.star}distance={val?.distance} key={index}/>)

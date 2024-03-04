@@ -10,9 +10,9 @@ import {iconMapping} from '../assets/icons/iconMap'
 import {Colors} from '../utils/colors';
 // import MessageScreen from '../screens/messageScreen/MessageScreen';
 import AppConfig from '../utils/config';
-// import ProfileScreen from '../screens/profileScreen/ProfileScreen';
 import TopTabsNavigation from './topTabNavigation';
 import StackNavigation from './stackNavigation';
+import RequestScreen from '../screens/requestScreen/RequestScreen';
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
@@ -49,7 +49,7 @@ const BottomNavigation = () => {
       <Tab.Screen
         options={{
           headerShown: false,
-          tabBarLabel: strings.inProgress,
+          tabBarLabel: strings.request,
           tabBarIcon: ({focused}) => (
             <Image
               source={Images.profileIcon}
@@ -61,8 +61,22 @@ const BottomNavigation = () => {
             />
           ),
         }}
-        name={strings.inProgress}
+        name={strings.request}
+       
         component={StackNavigation}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarLabel: strings.inProgress,
+          
+          tabBarIcon: ({focused}) => (
+            iconMapping?.tugVanInprogress
+          ),
+        }}
+        name={strings.inProgress}
+        
+        component={RequestScreen}
       />
     
       <Tab.Screen
@@ -70,15 +84,6 @@ const BottomNavigation = () => {
           headerShown: false,
           tabBarLabel: strings.settings,
           tabBarIcon: ({focused}) => (
-            
-            // <Image
-            //   source={Images.messageIcon}
-            //   style={{
-            //     tintColor: focused
-            //       ? Colors.primaryColors.yellow
-            //       : Colors.primaryColors.black,
-            //   }}
-            // />
             iconMapping?.settings
             
           ),
@@ -86,24 +91,7 @@ const BottomNavigation = () => {
         name={strings.settings}
         component={HomeScreen}
       />
-      <Tab.Screen
-        options={{
-          headerShown: false,
-          tabBarLabel: strings.request,
-          tabBarIcon: ({focused}) => (
-            <Image
-              source={Images.menuIcon}
-              style={{
-                tintColor: focused
-                  ? Colors.primaryColors.yellow
-                  : Colors.primaryColors.black,
-              }}
-            />
-          ),
-        }}
-        name={strings.request}
-        component={HomeScreen}
-      />
+      
     </Tab.Navigator>
   );
 };

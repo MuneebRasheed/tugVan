@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 const PendingCard: FC<pendingCardPropsTypes> = ({icon, name, location,star,distance}) => {
   const navigation = useNavigation(); 
   return (
-    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('RecentDetailScreen')}>
+    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('PendingDetailScreen')}>
       <View style={styles.leftHalf}>{icon}</View>
       <View style={styles.rightHalf}>
         <View style={styles.firstRow}>

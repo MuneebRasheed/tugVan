@@ -21,6 +21,7 @@ export default {
     batteryReplacment:"Battery Replacement",
     offerYourFare:"Offer Your Fare",
     bookingDetails:"Booking Details",
-    fare:"Fare"
+    fare:"Fare",
+    updateFare:"Update Your Fare"
 
 }

@@ -5,6 +5,7 @@ import {Colors} from '../../utils/colors';
 import {styles} from './styles';
 import InProgressCard from '../../component/InprogressCard/InprogressCard';
 import { InprogressData } from '../../utils/dummyData';
+import SearchInput from '../../component/searchInput/SearchInput';
 const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
   return (
   
@@ -13,6 +14,7 @@ const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
         backgroundColor={Colors.primaryColors.lightGrey}
         barStyle={'dark-content'}
       />
+      <SearchInput/>
         <ScrollView>
     {
       InprogressData.map((val,index)=><InProgressCard  icon={val?.icon} name={val?.name} location={val?.location}star={val?.star}distance={val?.distance} key={index}/>)
