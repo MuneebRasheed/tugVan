@@ -14,8 +14,8 @@ headerWrapper:{
         color: Colors.primaryColors.grey2,
         paddingHorizontal: 20,
         backgroundColor:'white',
-        borderRadius:20.
-        
+        borderRadius:20,
+        height:40
       }
 
 })

@@ -22,6 +22,7 @@ export default {
     offerYourFare:"Offer Your Fare",
     bookingDetails:"Booking Details",
     fare:"Fare",
-    updateFare:"Update Your Fare"
+    updateFare:"Update Your Fare",clientTyre:"Client ( Tyre - Fitter )",
+templete:"Predefined Message Templates"
 
 }

@@ -46,7 +46,7 @@ const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,dista
             
           </View>
         <View style={styles.directionRow}>
-        <View style={styles.viewAll}><Text style={styles.textViewAllButton}>Chat</Text></View>
+        <TouchableOpacity onPress={()=>{navigation.navigate("MessageScreen")}}style={styles.viewAll}><Text style={styles.textViewAllButton}>Chat</Text></TouchableOpacity>
             
           </View>
           </View>

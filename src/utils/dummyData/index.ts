@@ -187,3 +187,12 @@ export const mapStyle = [
     stylers: [{color: '#17263c'}],
   },
 ];
+
+export const messageData = [
+  
+      {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
+      {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
+      {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
+      {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
+ 
+];

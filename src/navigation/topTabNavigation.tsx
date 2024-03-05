@@ -9,7 +9,7 @@ import PendingScreen from '../screens/pendingScreen/PendingScreen';
 import CompletedScreen from '../screens/completedScreen/CompletedScreen';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 const TopTabsNavigation=({ navigation, route })=> {
-const [activeTab,setActiveTab]= useState("")
+const [activeTab,setActiveTab]= useState("Recent")
   React.useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
    

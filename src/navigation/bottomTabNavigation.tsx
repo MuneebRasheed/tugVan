@@ -13,6 +13,7 @@ import AppConfig from '../utils/config';
 import TopTabsNavigation from './topTabNavigation';
 import StackNavigation from './stackNavigation';
 import RequestScreen from '../screens/requestScreen/RequestScreen';
+import StackNavigationInProgress from './stackNavigationInProgress';
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
@@ -76,7 +77,7 @@ const BottomNavigation = () => {
         }}
         name={strings.inProgress}
         
-        component={RequestScreen}
+        component={StackNavigationInProgress}
       />
     
       <Tab.Screen

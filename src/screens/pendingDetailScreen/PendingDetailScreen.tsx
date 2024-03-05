@@ -7,8 +7,10 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
 import MapView, {Marker} from 'react-native-maps';
 import {useNavigation} from '@react-navigation/native';
+
 import { mapStyle } from '../../utils/dummyData';
 const PendingDetailScreen: FC<PendingDetailScreenPropsTypes> = () => {
+
   const navigation = useNavigation();
   
   return (
