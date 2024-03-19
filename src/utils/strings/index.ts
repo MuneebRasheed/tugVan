@@ -10,7 +10,7 @@ export default {
     earningNumber:"$74,200.00",
     taskCompleted:"Completed",
     serviceRequest:"Request",
-    inProgressService:"In Progress",
+    inProgressService:"Accepted",
     number25:"25",
     number150:"150",
     number10:"10",

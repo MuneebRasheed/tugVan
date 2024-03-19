@@ -1,5 +1,5 @@
 import {SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {RecentDetailScreenPropsTypes} from './types';
 import {Colors} from '../../utils/colors';
 import {styles} from './styles';
@@ -8,9 +8,29 @@ import strings from '../../utils/strings';
 import MapView, {Marker} from 'react-native-maps';
 import {useNavigation} from '@react-navigation/native';
 import { mapStyle } from '../../utils/dummyData';
+import { socketBiding } from '../../utils/socketService';
+import { useRoute } from '@react-navigation/native';
 const RecentDetailScreen: FC<RecentDetailScreenPropsTypes> = () => {
+  const route = useRoute();
+  const { value } = route.params;
   const navigation = useNavigation();
-  
+  const[price,setPrice]=useState(0)
+  console.log("test....",value)
+  const Bidding=()=>{
+    socketBiding.emit('upcomingBooking', { data:{
+      name:"tugVan",
+      companyId:"64e6f3aaede060201015de57",
+      reference_id:value?._id,
+      // reference_id:"65f6d0e9b5611430d4e59108",
+      carModel: 'Toyota Camry1',
+      carType: 'Sedan 1',
+      location: 'Airport 1',
+      price: `$`+price,
+      imageSrc :"https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+      
+      }});
+      navigation.goBack()
+  }
   return (
     <ScrollView>
     <SafeAreaView style={styles.container}>
@@ -101,12 +121,13 @@ const RecentDetailScreen: FC<RecentDetailScreenPropsTypes> = () => {
               placeholder="Enter Fare £"
               style={styles.textField}
               placeholderTextColor="white"
+              onChangeText={(e)=>setPrice(e)}
             />
           </View>
 
-          <View style={styles.viewAll}>
+          <TouchableOpacity style={styles.viewAll} onPress={Bidding}>
             <Text style={styles.textViewAll}>{strings.offerYourFare}</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

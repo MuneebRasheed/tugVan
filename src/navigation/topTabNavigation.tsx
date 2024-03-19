@@ -3,11 +3,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 const Tab = createMaterialTopTabNavigator();
 import { Colors } from '../utils/colors';
+import AppConfig from '../utils/config';
 import InProgressScreen from '../screens/inProgressScreen/InProgressScreen';
 
 import PendingScreen from '../screens/pendingScreen/PendingScreen';
 import CompletedScreen from '../screens/completedScreen/CompletedScreen';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import RequestScreen from '../screens/requestScreen/RequestScreen';
+import StackNavigationInProgress from './stackNavigationInProgress';
 const TopTabsNavigation=({ navigation, route })=> {
 const [activeTab,setActiveTab]= useState("Recent")
   React.useLayoutEffect(() => {
@@ -30,20 +33,26 @@ const [activeTab,setActiveTab]= useState("Recent")
 
     <Tab.Navigator 
     screenOptions={{
-        tabBarLabelStyle: { fontSize: 14,fontWeight:'600' },
-        tabBarStyle: {  marginHorizontal:15,borderRadius:10,marginTop:10,marginBottom:10},
+        tabBarLabelStyle: { fontSize: 14,fontWeight:'600' ,color:Colors.primaryColors.yellow},
+        tabBarStyle: {  
+          // marginHorizontal:15,
+          // borderRadius:10,
+          marginTop:10,
+          marginBottom:2,    
+        },
         tabBarIndicatorStyle: {
             height: '100%',
-            backgroundColor: Colors.primaryColors.yellow,
+            backgroundColor: AppConfig().primaryColor,
             borderBottomWidth: 1.5,
-            borderBottomColor: Colors.primaryColors.yellow,
+            borderBottomColor: AppConfig().primaryColor,
+         
            
-            ...finalResult
+            // ...finalResult
         }
       }}>
-      <Tab.Screen name="Recent" component={InProgressScreen}  />
-      <Tab.Screen name="Pending" component={PendingScreen} />
-      <Tab.Screen name="Completed" component={CompletedScreen} />
+      <Tab.Screen name="In Bidding" component={InProgressScreen}  />
+      <Tab.Screen name="Request Sent" component={PendingScreen} />
+      <Tab.Screen name="Accepted " component={StackNavigationInProgress} />
     </Tab.Navigator>
     </>
   );

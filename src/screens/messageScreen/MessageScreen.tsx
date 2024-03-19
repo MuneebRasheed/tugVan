@@ -31,7 +31,7 @@ const MessageScreen: FC<MessageScreenPropsTypes> = () => {
         backgroundColor={Colors.primaryColors.lightGrey}
         barStyle={'dark-content'}
       />
-      <ChatHeader />
+      <ChatHeader title={strings.clientTyre} />
       <View style={styles.messageList}>
       {messageData?.map((val, ind) => (
           <ChatMessage key={ind} message={val} isSender={val?.sender} />

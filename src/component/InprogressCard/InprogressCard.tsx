@@ -5,17 +5,17 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
 import {TaskCardPropsTypes} from './types';
 import { useNavigation } from '@react-navigation/native';
-const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,distance}) => {
+const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,distance,value}) => {
   const navigation = useNavigation(); 
   return (
-    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('RecentDetailScreen')}>
-      <View style={styles.leftHalf}>{icon}</View>
+    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('RecentDetailScreen',{value:value})}>
+      <View style={styles.leftHalf}>{iconMapping?.tugVanTyre}</View>
       <View style={styles.rightHalf}>
         <View style={styles.firstRow}>
           <View>
-            <Text style={styles.textPrice}>{name}</Text>
+            <Text style={styles.textPrice}>{strings.tyreFitter}</Text>
           </View>
-          <View>{iconMapping.tugVanCross}</View>
+          <View></View>
         </View>
         <View style={styles.secondRow}>
           <View style={styles.directionRow}>

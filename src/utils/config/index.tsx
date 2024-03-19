@@ -4,7 +4,7 @@ function AppConfig() {
       appName: 'APP_NAME',
       primaryColor: '#1C2B39',
       secondaryColor: '#fff',
-      apiUrl: 'https://0422-89-197-221-180.ngrok-free.app/api/',
+      apiUrl: 'http://192.168.10.6:8081/',
     };
   }
   export default AppConfig;

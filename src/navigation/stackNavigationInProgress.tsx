@@ -15,7 +15,7 @@ function StackNavigationInProgress() {
 
       <Stack.Screen name="RequestScreen" component={RequestScreen} />
 
-      <Stack.Screen name="MessageScreen" component={MessageScreen} />
+      {/* <Stack.Screen name="MessageScreen" component={MessageScreen} /> */}
 
     </Stack.Navigator>
   );

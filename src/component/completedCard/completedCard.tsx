@@ -15,7 +15,7 @@ const CompletedCard: FC<CompletedCardPropsTypes> = ({icon, name, location,star,d
           <View>
             <Text style={styles.textPrice}>{name}</Text>
           </View>
-          <View>{iconMapping.tugVanCross}</View>
+          <View></View>
         </View>
         <View style={styles.secondRow}>
           <View style={styles.directionRow}>

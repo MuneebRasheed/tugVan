@@ -3,8 +3,8 @@ import strings from '../strings';
 export const TaskCardData = [
   {
     icon: iconMapping.tugVanCompleted,
-    name: strings.taskCompleted,
-    count: strings.number25,
+    name: "In Bidding",
+    count: 20,
   },
   {
     icon: iconMapping.tugVanRequest,
@@ -15,6 +15,11 @@ export const TaskCardData = [
     icon: iconMapping.tugVanInprogress,
     name: strings.inProgressService,
     count: strings.number10,
+  },
+  {
+    icon: iconMapping.tugVanCompleted,
+    name: strings.taskCompleted,
+    count: strings.number25,
   },
 ];
 

@@ -15,7 +15,7 @@ const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,dista
           <View>
             <Text style={styles.textPrice}>{name}</Text>
           </View>
-          <View>{iconMapping.tugVanCross}</View>
+          <View></View>
         </View>
         <View style={styles.secondRow}>
           <View style={styles.directionRow}>

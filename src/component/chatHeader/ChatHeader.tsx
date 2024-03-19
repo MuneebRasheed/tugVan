@@ -8,14 +8,14 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import { Colors } from '../../utils/colors';
 import {useNavigation} from '@react-navigation/native';
 
-const ChatHeader = () => {
+const ChatHeader = ({title}) => {
   const navigation = useNavigation();
   return (
    
      
      <TouchableOpacity style={styles.header} onPress={()=>navigation.goBack()}>
         {iconMapping.tugVanLeftArrow}
-        <Text style={styles.HeadingText}>{strings.clientTyre}</Text>
+        <Text style={styles.HeadingText}>{title}</Text>
       </TouchableOpacity>
      
 

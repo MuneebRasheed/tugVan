@@ -14,6 +14,8 @@ import TopTabsNavigation from './topTabNavigation';
 import StackNavigation from './stackNavigation';
 import RequestScreen from '../screens/requestScreen/RequestScreen';
 import StackNavigationInProgress from './stackNavigationInProgress';
+import PerformanceDetailScreen from '../screens/performanceDetailScreen/PerformanceDetailScreen';
+import CompletedScreen from '../screens/completedScreen/CompletedScreen';
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
@@ -69,15 +71,15 @@ const BottomNavigation = () => {
       <Tab.Screen
         options={{
           headerShown: false,
-          tabBarLabel: strings.inProgress,
+          tabBarLabel: strings.taskCompleted,
           
           tabBarIcon: ({focused}) => (
             iconMapping?.tugVanInprogress
           ),
         }}
-        name={strings.inProgress}
+        name={ strings.taskCompleted}
         
-        component={StackNavigationInProgress}
+        component={CompletedScreen}
       />
     
       <Tab.Screen
@@ -90,7 +92,7 @@ const BottomNavigation = () => {
           ),
         }}
         name={strings.settings}
-        component={HomeScreen}
+        component={PerformanceDetailScreen}
       />
       
     </Tab.Navigator>
