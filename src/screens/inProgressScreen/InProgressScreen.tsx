@@ -23,7 +23,7 @@ const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
 
     socketBooking.on('newBooking', booking => {
       GetBooking();
-      console.log('Recieve booking from socket:......... ', booking);
+      // console.log('Recieve booking from socket:......... ', booking);
     });
     GetBooking();
   }, []);
