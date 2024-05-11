@@ -7,6 +7,12 @@ import {RequestCardPropsTypes} from './types';
 import { useNavigation } from '@react-navigation/native';
 const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance}) => {
   const navigation = useNavigation(); 
+  const startWorkingHandler = () => {
+    navigation.navigate('LiveTrackingScreen', {
+      latitude: 31.657284602508824, 
+      longitude: 73.93410977049
+    });
+  };
   return (
     <View style={styles.earningCardWrapper} >
       <View style={styles.leftHalf}>{icon}</View>
@@ -42,7 +48,7 @@ const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,dista
           </View>
           <View style={styles.secondRow}>
           <View style={styles.directionRow}>
-        <View style={styles.viewAllWorking}><Text style={styles.textViewAllButton}>Start Working</Text></View>
+        <TouchableOpacity style={styles.viewAllWorking} onPress={startWorkingHandler}><Text style={styles.textViewAllButton}>Start Working</Text></TouchableOpacity>
             
           </View>
         <View style={styles.directionRow}>

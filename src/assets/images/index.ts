@@ -33,5 +33,6 @@ export const Images = {
   duplicateIcon: require('./duplicate.png'),
   archiveIcon: require('./archive.png'),
   folderIcon: require('./folder.png'),
-  settingIcon:require('./settings.png')
+  settingIcon:require('./settings.png'),
+
 };

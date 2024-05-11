@@ -1,10 +1,10 @@
 import io from 'socket.io-client'
-const IP_ADDRESS="192.168.10.6"
+const IP_ADDRESS="192.168.34.168"
 
-const SOCKET_URL = `http://${IP_ADDRESS}:8081`
-const SOCKET_URL_BIDING = `http://192.168.10.6:8081/v2/biding`
+const SOCKET_URL = `http://${IP_ADDRESS}:8080`
+const SOCKET_URL_BIDING = `http://192.168.34.168:8080/v2/biding`
 export const socketBiding = io(SOCKET_URL_BIDING)
-const SOCKET_URL_BOOKING = `http://192.168.10.6:8081/v2/booking`
+const SOCKET_URL_BOOKING = `http://192.168.34.168:8080/v2/booking`
 export const socketBooking = io(SOCKET_URL_BOOKING)
 
 class WSService {
