@@ -8,7 +8,12 @@ import { useNavigation } from '@react-navigation/native';
 import { ImageAndName } from '../../utils/dummyData';
 const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance,value,type}) => {
   const navigation = useNavigation(); 
-  
+  const startWorkingHandler = () => {
+    navigation.navigate('LiveTrackingScreen', {
+      latitude: 31.657284602508824, 
+      longitude: 73.93410977049
+    });
+  };
   return (
     <View style={styles.earningCardWrapper} >
       <View style={styles.leftHalf}>{ImageAndName(type).image}</View>
@@ -44,7 +49,7 @@ const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,dista
           </View>
           <View style={styles.secondRow}>
           <View style={styles.directionRow}>
-        <View style={styles.viewAllWorking}><Text style={styles.textViewAllButton}>Start Working</Text></View>
+        <TouchableOpacity style={styles.viewAllWorking} onPress={startWorkingHandler}><Text style={styles.textViewAllButton}>Start Working</Text></TouchableOpacity>
             
           </View>
         <View style={styles.directionRow}>
