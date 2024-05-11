@@ -4,7 +4,7 @@ function AppConfig() {
       appName: 'APP_NAME',
       primaryColor: '#1C2B39',
       secondaryColor: '#fff',
-      apiUrl: 'http://192.168.10.6:8081/',
+      apiUrl: 'http://192.168.0.101:8081/',
     };
   }
   export default AppConfig;

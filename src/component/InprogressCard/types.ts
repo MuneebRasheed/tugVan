@@ -5,7 +5,8 @@ export interface TaskCardPropsTypes {
     location?: any,
     star?: any,
     distance?: any,
-    value?:any
+    value?:any,
+    type?:any
 
    
    

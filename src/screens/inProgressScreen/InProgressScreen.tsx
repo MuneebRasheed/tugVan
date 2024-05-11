@@ -12,29 +12,25 @@ import {
   socketBooking,
 } from '../../utils/socketService';
 import {APIHANDLER} from '../../services/apiConfig';
+import { useSelector, useDispatch } from 'react-redux';
 const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
-  const [InBiddingData, SetInBiddingData] = useState([]);
-  useEffect(() => {
-    //   socketBiding.on('get-up-booking', (booking) => {
-
-    //     console.log('Recieve booking from socket in mobile ', "booking")
-
-    // })
-
-    socketBooking.on('newBooking', booking => {
-      GetBooking();
-      // console.log('Recieve booking from socket:......... ', booking);
-    });
-    GetBooking();
-  }, []);
+  const companyId = useSelector(state => state.booking.companyId);
+  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>!val?.bids.includes(companyId)&& (val?.status=="BIDDING")) );
+  // console.log("bookings redux",InBiddingData)
+ 
+  // socketBooking.on('newBooking', booking => {
+  //   // GetBooking();
+  //   console.log('Recieve booking from socket:......... ', booking);
+  // });
 
   const GetBooking = () => {
     APIHANDLER('GET', `api/v2/bookings`, null, '').then(value => {
       if(value?.data?.length>0){
+        console.log(value?.data[0])
         SetInBiddingData(value?.data);
       }
     
-      console.log('value......', value?.data.length);
+      console.log('value......', value?.data[0]);
     });
   };
   return (
@@ -55,6 +51,7 @@ const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
               distance={'30km'}
               key={index}
               value={val}
+              type={val?.type}
             />
           ))
         ) : (

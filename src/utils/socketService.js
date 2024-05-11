@@ -1,10 +1,12 @@
 import io from 'socket.io-client'
-const IP_ADDRESS="192.168.10.6"
+// let IP_ADDRESS="10.135.9.84"
+import AppConfig from './config'
+let IP_ADDRESS=AppConfig().apiUrl
 
-const SOCKET_URL = `http://${IP_ADDRESS}:8081`
-const SOCKET_URL_BIDING = `http://192.168.10.6:8081/v2/biding`
+const SOCKET_URL = `${IP_ADDRESS}`
+let SOCKET_URL_BIDING = `${IP_ADDRESS}v2/biding`
 export const socketBiding = io(SOCKET_URL_BIDING)
-const SOCKET_URL_BOOKING = `http://192.168.10.6:8081/v2/booking`
+let SOCKET_URL_BOOKING = `${IP_ADDRESS}v2/booking`
 export const socketBooking = io(SOCKET_URL_BOOKING)
 
 class WSService {
@@ -15,7 +17,7 @@ class WSService {
             this.socket = io(SOCKET_URL, {
                 transports: ['websocket']
             })
-            console.log("initializing socket", this.socket)
+            console.log("initializing socket")
 
             this.socket.on('connect', (data) => {
                 console.log("=== socket connected ====")

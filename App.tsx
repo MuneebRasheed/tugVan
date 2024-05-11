@@ -3,34 +3,24 @@
 import React,{useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import BottomNavigation from './src/navigation/bottomTabNavigation';
-import {socketServcies,socketBiding,socketBooking} from './src/utils/socketService';
+
+import { Provider } from 'react-redux';
+import store from './src/redux';
+import { APIHANDLER } from './src/services/apiConfig';
 
 
 function App(): React.JSX.Element {
- 
-  useEffect(()=>{
-    socketServcies.initializeSocket()
-    socketBiding.on('connect', () => {
-     
-      console.log('Socket.IO connection established at /v2/biding');
-    });
-    socketBooking.on('connect', () => {
-     
-      console.log('Socket.IO connection established at /v2/booking');
-    });
-    listenNewBooking()
-  },[])
-  const listenNewBooking=()=>{
-   
-
 
 
   
-}
+
+
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <BottomNavigation/>
   </NavigationContainer>
+  </Provider>
   
   );
 }

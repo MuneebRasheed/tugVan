@@ -5,15 +5,17 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
 import {RequestCardPropsTypes} from './types';
 import { useNavigation } from '@react-navigation/native';
-const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance}) => {
+import { ImageAndName } from '../../utils/dummyData';
+const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance,value,type}) => {
   const navigation = useNavigation(); 
+  
   return (
     <View style={styles.earningCardWrapper} >
-      <View style={styles.leftHalf}>{icon}</View>
+      <View style={styles.leftHalf}>{ImageAndName(type).image}</View>
       <View style={styles.rightHalf}>
         <View style={styles.firstRow}>
           <View>
-            <Text style={styles.textPrice}>{name}</Text>
+            <Text style={styles.textPrice}>{ImageAndName(type).name}</Text>
           </View>
           <View></View>
         </View>

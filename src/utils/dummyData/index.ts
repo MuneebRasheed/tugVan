@@ -23,6 +23,39 @@ export const TaskCardData = [
   },
 ];
 
+export const ImageAndName = (type) => {
+  let data= {image : null,name:"Tyre Fitter"};
+  switch (type) {
+    case "TYRE":
+     
+      data.image = iconMapping?.tugVanTyre;
+      data.name="Tyre Fitter"
+      break;
+  
+      case "FUEL":
+        
+        data.image  = iconMapping?.tugVanFuel;
+        data.name="Fuel"
+        break;
+        case "BATTERY":
+         
+          data.image  = iconMapping?.tugVanBattery;
+          data.name="Battery"
+          break;
+        
+        case "RECOVERY":
+          // Assuming iconMapping is defined somewhere
+          data.image  = iconMapping?.tugVanBattery;
+          data.name="Recovery"
+          break;
+    default:
+      // Handle default case here, for example:
+      data.image  = iconMapping?.tugVanTyre; // Or set a default image
+      break;
+  }
+  return data;
+}
+
 export const InprogressData = [
   {
     location: "Highway, London",

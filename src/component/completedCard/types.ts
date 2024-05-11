@@ -5,6 +5,7 @@ export interface CompletedCardPropsTypes {
     location?: any,
     star?: any,
     distance?: any,
+    type?:any
 
    
    

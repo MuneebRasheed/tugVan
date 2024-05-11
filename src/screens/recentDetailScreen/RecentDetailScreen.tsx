@@ -10,25 +10,39 @@ import {useNavigation} from '@react-navigation/native';
 import { mapStyle } from '../../utils/dummyData';
 import { socketBiding } from '../../utils/socketService';
 import { useRoute } from '@react-navigation/native';
+import { APIHANDLER } from '../../services/apiConfig';
 const RecentDetailScreen: FC<RecentDetailScreenPropsTypes> = () => {
   const route = useRoute();
   const { value } = route.params;
   const navigation = useNavigation();
   const[price,setPrice]=useState(0)
-  console.log("test....",value)
+  // console.log("test....",value)
+  const CreateBidding = (data) => {
+    APIHANDLER('POST', `api/company-bookings/mobile_app/v2/newBidding`, data, '').then(value => {
+      
+    console.log("`Bidding created succesfully")
+     
+    });
+  };
+
   const Bidding=()=>{
-    socketBiding.emit('upcomingBooking', { data:{
-      name:"tugVan",
-      companyId:"64e6f3aaede060201015de57",
+
+    let BiddingValue={
+      name:"Usman Akram",
+      // companyId:"64e6f3aaede060201015de57",//tugvan
+      companyId:"64ad31ae785d3f110cb88cbf",// usman akram
       reference_id:value?._id,
       // reference_id:"65f6d0e9b5611430d4e59108",
       carModel: 'Toyota Camry1',
       carType: 'Sedan 1',
       location: 'Airport 1',
-      price: `$`+price,
+      price: price,
       imageSrc :"https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
       
-      }});
+      }
+
+      CreateBidding(BiddingValue)
+    socketBiding.emit('upcomingBooking', { data:BiddingValue});
       navigation.goBack()
   }
   return (

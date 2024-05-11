@@ -4,7 +4,8 @@ export interface pendingCardPropsTypes {
     name?:string,
     location?: any,
     star?: any,
-    distance?: any,
+    distance?: any,value?:any,
+    type?:any
 
    
    
