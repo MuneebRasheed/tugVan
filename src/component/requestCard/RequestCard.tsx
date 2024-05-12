@@ -6,12 +6,12 @@ import strings from '../../utils/strings';
 import {RequestCardPropsTypes} from './types';
 import { useNavigation } from '@react-navigation/native';
 import { ImageAndName } from '../../utils/dummyData';
-const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance,value,type}) => {
+const RequestCard: FC<RequestCardPropsTypes> = ({icon, name, location,star,distance,value,type,directions}) => {
   const navigation = useNavigation(); 
   const startWorkingHandler = () => {
     navigation.navigate('LiveTrackingScreen', {
-      latitude: 31.657284602508824, 
-      longitude: 73.93410977049
+      latitude: directions.lat, 
+      longitude: directions.lng
     });
   };
   return (

@@ -119,12 +119,12 @@ const LiveTrackingScreen = ({ route }) => {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log('Directions data:', data);
+      //console.log('Directions data:', data);
   
       if (data.routes.length) {
         const route = data.routes[0];
         const routeCoordinates = decodePolyline(route.overview_polyline.points);
-        console.log('Decoded polyline:', routeCoordinates);
+        //console.log('Decoded polyline:', routeCoordinates);
         return routeCoordinates;
       } else {
         throw new Error('No route found');

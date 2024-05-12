@@ -34,6 +34,7 @@ const RequestScreen: FC<RequestScreenPropsTypes> = () => {
               key={index}
               value={val}
               type={val?.type}
+              directions={val?.From_location.location}
             />
           ))
         ) : (
