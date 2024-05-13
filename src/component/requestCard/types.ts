@@ -6,7 +6,8 @@ export interface RequestCardPropsTypes {
     star?: any,
     distance?: any,
     value?:any,
-    type?:any
+    type?:any,
+    status?:any
    
    
 }

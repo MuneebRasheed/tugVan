@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 const RequestScreen: FC<RequestScreenPropsTypes> = () => {
   const companyId = useSelector(state => state.booking.companyId);
-  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>val?.bids?.includes(companyId) && (val?.status=="ACCEPTED")));
+  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>val?.bids?.includes(companyId) && (val?.status=="ACCEPTED" ||val?.status=="ACTIVE")));
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -35,6 +35,7 @@ const RequestScreen: FC<RequestScreenPropsTypes> = () => {
               value={val}
               type={val?.type}
               directions={val?.From_location.location}
+              status={val?.status}
             />
           ))
         ) : (

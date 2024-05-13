@@ -19,6 +19,12 @@ const bookingSlice = createSlice({
       console.log("In action reducers", state.bookings)
      
       },
+      setUpdateStatus(state, action) {
+       
+      state.bookings=state.bookings.map(val=>val._id==action.payload.id?{...val,...action.payload.body}:val)
+
+       
+        },
     setLoading(state, action) {
       state.loading = action.payload;
     },
@@ -28,6 +34,6 @@ const bookingSlice = createSlice({
   },
 });
 
-export const { setBookings, setLoading, setError,setOneBookings } = bookingSlice.actions;
+export const { setBookings, setLoading, setError,setOneBookings ,setUpdateStatus} = bookingSlice.actions;
 
 export default bookingSlice.reducer;
