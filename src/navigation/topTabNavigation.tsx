@@ -52,7 +52,7 @@ const [activeTab,setActiveTab]= useState("Recent")
       }}>
       <Tab.Screen name="In Bidding" component={InProgressScreen}  />
       <Tab.Screen name="Request Sent" component={PendingScreen} />
-      <Tab.Screen name="Accepted " component={StackNavigationInProgress} />
+      <Tab.Screen name="Accepted" component={StackNavigationInProgress} />
     </Tab.Navigator>
     </>
   );

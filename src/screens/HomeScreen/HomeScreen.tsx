@@ -9,11 +9,14 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import TaskCard from '../../component/taskCard/TaskCard';
 import {TaskCardData} from '../../utils/dummyData';
 import ModalToolTip from '../../component/modal/Modal';
+import { useSelector } from 'react-redux';
 const HomeScreen: FC<HomeScreenPropsTypes> = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  const companyId = useSelector(state => state.booking.companyId);
+  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>val?.bids?.includes(companyId) && (val?.status=="COMPLETED")));
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -33,6 +36,7 @@ const HomeScreen: FC<HomeScreenPropsTypes> = () => {
               name={task.name}
               count={task.count}
               onPress={toggleModal}
+             
             />
           ))}
         </View>
