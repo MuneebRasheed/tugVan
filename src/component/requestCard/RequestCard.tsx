@@ -9,6 +9,7 @@ import {ImageAndName} from '../../utils/dummyData';
 import {APIHANDLER} from '../../services/apiConfig';
 import { useDispatch, UseDispatch } from 'react-redux';
 import { setUpdateStatus } from '../../redux/slices/bookingSlice';
+import ShowMessage from '../Toast/index';
 const RequestCard: FC<RequestCardPropsTypes> = ({
   icon,
   name,
@@ -26,7 +27,14 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
     navigation.navigate('LiveTrackingScreen', {
       latitude: directions.lat,
       longitude: directions.lng,
+      location: location,
+      star: star,
+      distance:distance,
+      value:value,
+      type:type,
+      status:status
     });
+    status == 'ACCEPTED' ? ShowMessage("Ride Started!"):ShowMessage("Live Tracking Started!")
   };
   const UpdateStatus = data => {
     APIHANDLER(
