@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import AppConfig from '../../utils/config';
 import {Colors} from '../../utils/colors';
-import { windowHeight } from '../../utils/dimensions';
+import {windowHeight} from '../../utils/dimensions';
 
 const config = AppConfig();
 export const styles = StyleSheet.create({
@@ -18,40 +18,38 @@ export const styles = StyleSheet.create({
     color: Colors.primaryColors.grey2,
     fontSize: 16,
   },
-  center: {marginTop:10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  center: {marginTop: 10, justifyContent: 'center', alignItems: 'center'},
   btnText: {
     color: Colors.primaryColors.white,
   },
   button: {
     borderWidth: 1,
     borderColor: Colors.primaryColors.yellow,
-   
-    alignItems:'center',justifyContent:'center',height:30,borderRadius:10,
-    paddingHorizontal:10,
-    marginHorizontal:10
-  },customButtonWrapper:{
-  marginVertical:10,
-   flexDirection:'row'
-  },messageList:{
-    height:windowHeight/1.47,
-  margin:10
-  
-   
-  }, message: {
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 30,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+  },
+  customButtonWrapper: {
+    marginVertical: 10,
+    flexDirection: 'row',
+  },
+  messageList: {
+    margin: 10,
+  },
+  message: {
     maxWidth: '70%',
     padding: 8,
     marginBottom: 8,
   },
   senderMessage: {
-
     alignSelf: 'flex-end',
     backgroundColor: Colors.primaryColors.yellow,
     borderRadius: 8,
     borderBottomEndRadius: 0,
-    
   },
   senderText: {
     color: Colors.primaryColors.black,
@@ -69,9 +67,26 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     color: Colors.primaryColors.white,
     marginTop: 5,
-  },sendeMmessageTime: {
+  },
+  sendeMmessageTime: {
     fontSize: 10,
     color: Colors.primaryColors.white,
     marginTop: 5,
+  },
+  sendButton: {
+    backgroundColor: Colors.primaryColors.yellow,
+    width: '15%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textInput: {
+    backgroundColor: 'white',
+    width: '85%',
+  },
+  inputWrapper: {
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
   },
 });

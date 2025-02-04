@@ -7,27 +7,31 @@ import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import strings from '../../utils/strings';
 const TaskCard: FC<TaskCardPropsTypes> = ({icon, name, count, onPress}) => {
-  const companyId = useSelector(state => state.booking.companyId);
+  const companyId = useSelector(state => state.user.companyId);
   const InBiddingData = useSelector(state => state.booking.bookings);
   const navigation = useNavigation();
   let Value = count;
   if (name == 'In Bidding') {
     Value = InBiddingData.filter(
-      val => val?.bids?.includes(companyId) && val?.status == 'BIDDING',
+      val => !val?.bids?.includes(companyId) && val?.status == 'BIDDING',
     )?.length;
   } else if (name == 'Completed') {
     Value = InBiddingData.filter(
-      val => val?.bids?.includes(companyId) && val?.status == 'COMPLETED',
+      val =>
+        val?.bids?.includes(companyId) &&
+        val?.status == 'COMPLETED' &&
+        val?.company == companyId,
     )?.length;
   } else if (name == 'Accepted') {
     Value = InBiddingData.filter(
       val =>
         val?.bids?.includes(companyId) &&
+        val?.company == companyId &&
         (val?.status == 'ACCEPTED' || val?.status == 'ACTIVE'),
     )?.length;
   } else if (name == 'Request') {
     Value = InBiddingData.filter(
-      val => !val?.bids.includes(companyId) && val?.status == 'BIDDING',
+      val => val?.bids.includes(companyId) && val?.status == 'BIDDING',
     )?.length;
   }
 

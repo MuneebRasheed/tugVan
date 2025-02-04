@@ -28,9 +28,13 @@ import {
   socketServcies,
   socketBiding,
   socketBooking,
+  chatSocket,
+  trackingSocket,
 } from '../utils/socketService';
+import OTPScreen from '../screens/OTPScreen/OTPScreen';
 const BottomNavigation = () => {
   const dispatch = useDispatch();
+  const InBiddingData = useSelector(state => state.booking.bookings);
   const Tab = createBottomTabNavigator();
   const config = AppConfig();
   const GetBooking = () => {
@@ -53,12 +57,21 @@ const BottomNavigation = () => {
     socketBooking.on('connect', () => {
       console.log('Socket.IO connection established at /v2/booking');
     });
+    chatSocket.on('connect', () => {
+      console.log('Socket.IO connection established at /v2/chat');
+    });
+    trackingSocket.on('connect', () => {
+      console.log('Socket.IO connection established at /v2/tracking');
+    });
   }, []);
   socketBooking.on('newBooking', booking => {
-    GetBooking();
-    // dispatch(setOneBookings(booking?._doc));
-    console.log('Recieve booking from socket:......... ', booking?._doc);
+    // GetBooking();
+    if (InBiddingData?.filter(val => val._id != booking?._doc?._id)) {
+      dispatch(setOneBookings(booking?._doc));
+      console.log('Recieve booking from socket:......... ', booking?._doc);
+    }
   });
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -118,7 +131,7 @@ const BottomNavigation = () => {
         component={CompletedScreen}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         options={{
           headerShown: false,
           tabBarLabel: strings.settings,
@@ -126,7 +139,7 @@ const BottomNavigation = () => {
         }}
         name={strings.settings}
         component={PerformanceDetailScreen}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

@@ -7,8 +7,8 @@ import {RequestCardPropsTypes} from './types';
 import {useNavigation} from '@react-navigation/native';
 import {ImageAndName} from '../../utils/dummyData';
 import {APIHANDLER} from '../../services/apiConfig';
-import { useDispatch, UseDispatch } from 'react-redux';
-import { setUpdateStatus } from '../../redux/slices/bookingSlice';
+import {useDispatch, UseDispatch} from 'react-redux';
+import {setUpdateStatus} from '../../redux/slices/bookingSlice';
 import ShowMessage from '../Toast/index';
 const RequestCard: FC<RequestCardPropsTypes> = ({
   icon,
@@ -20,22 +20,26 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
   type,
   directions,
   status,
+  fare,
 }) => {
   const navigation = useNavigation();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const startWorkingHandler = () => {
     navigation.navigate('LiveTrackingScreen', {
       latitude: directions.lat,
       longitude: directions.lng,
       location: location,
       star: star,
-      distance:distance,
-      value:value,
-      type:type,
-      status:status
+      distance: distance,
+      value: value,
+      type: type,
+      status: status,
     });
-    status == 'ACCEPTED' ? ShowMessage("Ride Started!"):ShowMessage("Live Tracking Started!")
+    status == 'ACCEPTED'
+      ? ShowMessage('Ride Started!')
+      : ShowMessage('Live Tracking Started!');
   };
+
   const UpdateStatus = data => {
     APIHANDLER(
       'POST',
@@ -43,7 +47,6 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
       data,
       '',
     ).then(value => {
-     
       console.log('`Bidding created succesfully');
     });
   };
@@ -65,7 +68,7 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
           <View style={styles.directionRow}>
             {iconMapping.tugVanDistance}
             <Text style={styles.textViewAll}>
-              {strings?.distance + ': ' + distance}
+              {'Refeence Id' + ': ' + distance}
             </Text>
           </View>
         </View>
@@ -79,7 +82,9 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
           </TouchableOpacity>
           <View style={styles.directionRow}>
             {iconMapping.tugVanPaymentCardBlue}
-            <Text style={styles.textPayment}>{strings?.fare + ': £42'}</Text>
+            <Text style={styles.textPayment}>
+              {strings?.fare + `: £${fare}`}
+            </Text>
           </View>
         </View>
         <View style={styles.secondRow}>
@@ -87,24 +92,26 @@ const RequestCard: FC<RequestCardPropsTypes> = ({
             <TouchableOpacity
               style={styles.viewAllWorking}
               onPress={() => {
-                dispatch(setUpdateStatus({id:value._id,body:{status:"ACTIVE"}}))
+                dispatch(
+                  setUpdateStatus({id: value._id, body: {status: 'ACTIVE'}}),
+                );
                 if (status == 'ACCEPTED') {
                   UpdateStatus(value);
-                
                 }
-                startWorkingHandler()
-                
-               
+                startWorkingHandler();
               }}>
-              <Text style={styles.textViewAllButton}>{status == 'ACCEPTED'?"Start Working":"Live Track"
-                 
-                }</Text>
+              <Text style={styles.textViewAllButton}>
+                {status == 'ACCEPTED' ? 'Start Working' : 'Live Track'}
+              </Text>
             </TouchableOpacity>
           </View>
           <View style={styles.directionRow}>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('MessageScreen');
+                navigation.navigate('MessageScreen', {
+                  bookingId: value?._id,
+                  value: value,
+                });
               }}
               style={styles.viewAll}>
               <Text style={styles.textViewAllButton}>Chat</Text>

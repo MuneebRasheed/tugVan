@@ -3,7 +3,7 @@ import strings from '../strings';
 export const TaskCardData = [
   {
     icon: iconMapping.tugVanCompleted,
-    name: "In Bidding",
+    name: 'In Bidding',
     count: 20,
   },
   {
@@ -23,125 +23,139 @@ export const TaskCardData = [
   },
 ];
 
-export const ImageAndName = (type) => {
-  let data= {image : null,name:"Tyre Fitter"};
+export const ImageAndName = type => {
+  let data = {image: null, name: 'Tyre Fitter'};
   switch (type) {
-    case "TYRE":
-     
+    case 'TYRE':
       data.image = iconMapping?.tugVanTyre;
-      data.name="Tyre Fitter"
+      data.name = 'Tyre Fitter';
       break;
-  
-      case "FUEL":
-        
-        data.image  = iconMapping?.tugVanFuel;
-        data.name="Fuel"
-        break;
-        case "BATTERY":
-         
-          data.image  = iconMapping?.tugVanBattery;
-          data.name="Battery"
-          break;
-        
-        case "RECOVERY":
-          // Assuming iconMapping is defined somewhere
-          data.image  = iconMapping?.tugVanBattery;
-          data.name="Recovery"
-          break;
+
+    case 'FUEL':
+      data.image = iconMapping?.tugVanFuel;
+      data.name = 'Fuel';
+      break;
+
+    case 'Mobile_Service':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanServicing;
+      data.name = 'Mobile Service';
+      break;
+    case 'Battery_Service':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanBattery;
+      data.name = 'Battery Service';
+      break;
+    case 'Windscreen_Service':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanWindscreen;
+      data.name = 'Windscreen Service';
+      break;
+    case 'DPF_Cleaning':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanDpf;
+      data.name = 'DPF Cleaning';
+      break;
+    case 'Key_Service':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanKeysLost;
+      data.name = 'Key Service';
+      break;
+    case 'RECOVERY':
+      // Assuming iconMapping is defined somewhere
+      data.image = iconMapping?.tugVanCarRecovery;
+      data.name = 'Recovery';
+      break;
     default:
       // Handle default case here, for example:
-      data.image  = iconMapping?.tugVanTyre; // Or set a default image
+      data.image = iconMapping?.tugVanTyre; // Or set a default image
       break;
   }
   return data;
-}
+};
 
 export const InprogressData = [
   {
-    location: "Highway, London",
-    star: "255/55 R16 ,Locking Nut",
-    distance: "30km",
+    location: 'Highway, London',
+    star: '255/55 R16 ,Locking Nut',
+    distance: '30km',
     name: strings.tyreFitter,
- 
-    icon:iconMapping?.tugVanTyre
 
+    icon: iconMapping?.tugVanTyre,
   },
   {
-    location: "Highway, London",
-    star: "255/55 R16 ,Locking Nut",
-    distance: "30km",
+    location: 'Highway, London',
+    star: '255/55 R16 ,Locking Nut',
+    distance: '30km',
     name: strings.tyreFitter,
- 
-    icon:iconMapping?.tugVanTyre
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ,Locking Nut",
-    distance: "30km",
+    icon: iconMapping?.tugVanTyre,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ,Locking Nut',
+    distance: '30km',
     name: strings.wrongFuel,
- 
-    icon:iconMapping?.tugVanFuel
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ,Locking Nut",
-    distance: "30km",
+    icon: iconMapping?.tugVanFuel,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ,Locking Nut',
+    distance: '30km',
     name: strings.wrongFuel,
- 
-    icon:iconMapping?.tugVanFuel
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ,Locking Nut",
-    distance: "30km",
+    icon: iconMapping?.tugVanFuel,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ,Locking Nut',
+    distance: '30km',
     name: strings.batteryReplacment,
- 
-    icon:iconMapping?.tugVanBattery
 
+    icon: iconMapping?.tugVanBattery,
   },
 ];
 export const PendingData = [
   {
-    location: "Highway, London",
-    star: "255/55 R16 ",
-    distance: "30km",
+    location: 'Highway, London',
+    star: '255/55 R16 ',
+    distance: '30km',
     name: strings.tyreFitter,
- 
-    icon:iconMapping?.tugVanTyre
 
+    icon: iconMapping?.tugVanTyre,
   },
   {
-    location: "Highway, London",
-    star: "255/55 R16 ",
-    distance: "30km",
+    location: 'Highway, London',
+    star: '255/55 R16 ',
+    distance: '30km',
     name: strings.tyreFitter,
- 
-    icon:iconMapping?.tugVanTyre
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ",
-    distance: "30km",
+    icon: iconMapping?.tugVanTyre,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ',
+    distance: '30km',
     name: strings.wrongFuel,
- 
-    icon:iconMapping?.tugVanFuel
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ",
-    distance: "30km",
+    icon: iconMapping?.tugVanFuel,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ',
+    distance: '30km',
     name: strings.wrongFuel,
- 
-    icon:iconMapping?.tugVanFuel
 
-  },{
-    location: "Highway, London",
-    star: "255/55 R16 ",
-    distance: "30km",
+    icon: iconMapping?.tugVanFuel,
+  },
+  {
+    location: 'Highway, London',
+    star: '255/55 R16 ',
+    distance: '30km',
     name: strings.batteryReplacment,
- 
-    icon:iconMapping?.tugVanBattery
 
+    icon: iconMapping?.tugVanBattery,
   },
 ];
 
@@ -227,10 +241,8 @@ export const mapStyle = [
 ];
 
 export const messageData = [
-  
-      {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
-      {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
-      {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
-      {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
- 
+  {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
+  {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
+  {text: "I'm doing well, thanks!", time: '10:05 AM', sender: false},
+  {text: 'Hello, how are you?', time: '10:00 AM', sender: true},
 ];

@@ -4,12 +4,25 @@ import {styles} from './styles';
 import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
 import {pendingCardPropsTypes} from './types';
-import { useNavigation } from '@react-navigation/native';
-import { ImageAndName } from '../../utils/dummyData';
-const PendingCard: FC<pendingCardPropsTypes> = ({icon, name, location,star,distance,value,type}) => {
-  const navigation = useNavigation(); 
+import {useNavigation} from '@react-navigation/native';
+import {ImageAndName} from '../../utils/dummyData';
+const PendingCard: FC<pendingCardPropsTypes> = ({
+  icon,
+  name,
+  location,
+  star,
+  distance,
+  value,
+  type,
+  fare,
+}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('PendingDetailScreen')}>
+    <TouchableOpacity
+      style={styles.earningCardWrapper}
+      onPress={() =>
+        navigation.navigate('PendingDetailScreen', {value: value})
+      }>
       <View style={styles.leftHalf}>{ImageAndName(type).image}</View>
       <View style={styles.rightHalf}>
         <View style={styles.firstRow}>
@@ -25,22 +38,26 @@ const PendingCard: FC<pendingCardPropsTypes> = ({icon, name, location,star,dista
           </View>
           <View style={styles.directionRow}>
             {iconMapping.tugVanDistance}
-            <Text style={styles.textViewAll}>{strings?.distance+': '+distance}</Text>
+            <Text style={styles.textViewAll}>
+              {'Reference Id' + ': ' + distance}
+            </Text>
           </View>
         </View>
         <View style={styles.line}></View>
         <View style={styles.secondRow}>
-        <TouchableOpacity style={styles.directionRow}    >
-          {iconMapping.tugVanStar}
-          <Text style={styles.textViewAll}>
-            {strings?.product+':'+star}
-          </Text>
-        </TouchableOpacity>
-        <View style={styles.directionRow}>
-            {iconMapping.tugVanPaymentCardBlue}
-            <Text style={styles.textPayment}>{strings?.fare+': £42'}</Text>
+          <TouchableOpacity style={styles.directionRow}>
+            {iconMapping.tugVanStar}
+            <Text style={styles.textViewAll}>
+              {strings?.product + ':' + star}
+            </Text>
+          </TouchableOpacity>
+          <View style={styles.directionRow}>
+            {/* {iconMapping.tugVanPaymentCardBlue} */}
+            <Text style={styles.textPayment}>
+              {/* {strings?.fare + `: £${fare}`} */}
+            </Text>
           </View>
-          </View>
+        </View>
       </View>
     </TouchableOpacity>
   );

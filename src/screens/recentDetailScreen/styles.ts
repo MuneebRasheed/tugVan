@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: config.primaryColor,
   },
   mapStyle: {
-    marginTop:windowHeight / 17,
+    marginTop: windowHeight / 17,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   secondHalf: {
     marginTop: windowHeight / 3,
-    height: '100%',
+    height: windowHeight / 2.1,
     backgroundColor: Colors.primaryColors.white,
     padding: 10,
     gap: 15,
@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 20,
     width: windowWidth / 1.5,
     borderRadius: 10,
-    marginTop:20
+    marginTop: 20,
   },
   textField: {
     width: windowWidth / 1.9,
@@ -61,20 +61,31 @@ export const styles = StyleSheet.create({
     borderLeftWidth: 1,
     color: 'white',
     paddingHorizontal: 10,
-  },viewAll:{
-    backgroundColor:Colors.primaryColors.yellow,
-   height:windowHeight/18,
-    borderRadius:10,
-    alignItems:'center',
-    justifyContent:'center',
-    marginTop:10
-},
-textViewAll:{
-    color:Colors.primaryColors.blue,
-    fontWeight:'800',
-    fontSize:16
-},header:{backgroundColor:config.primaryColor,height:50,alignItems:'center',flexDirection:'row',paddingLeft:10,gap:10},HeadingText:{
-  color:Colors.primaryColors.white,
-  fontSize:18,fontWeight:'600'
-}
+  },
+  viewAll: {
+    backgroundColor: Colors.primaryColors.yellow,
+    height: windowHeight / 18,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  textViewAll: {
+    color: Colors.primaryColors.blue,
+    fontWeight: '800',
+    fontSize: 16,
+  },
+  header: {
+    backgroundColor: config.primaryColor,
+    height: 50,
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingLeft: 10,
+    gap: 10,
+  },
+  HeadingText: {
+    color: Colors.primaryColors.white,
+    fontSize: 18,
+    fontWeight: '600',
+  },
 });

@@ -33,8 +33,8 @@ const LoginScreen: FC<LoginScreenPropsTypes> = () => {
     setLoading(true); // Start loading
     try {
       const response = await APIHANDLER('POST', `api/auth`, data, '');
-      console.log('Login Successfully ', response?.data);
-      console.log('Login Successfully ', response?.status);
+      console.log('Login Successfully ', JSON.stringify(response?.data));
+
       if (response?.status == 200) {
         dispatch(setUser(response?.data));
       }

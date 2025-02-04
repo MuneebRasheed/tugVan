@@ -77,34 +77,59 @@ import plus from './Plus.svg';
 import arrowDown from './arrowDown.svg';
 import hand from './hand.svg';
 import exclamation from './exclamation.svg';
-import wallet from './wallet.svg'
-import tugvanLogo from './tugvanLogo2.svg'
-import tugVanCompleted from './tugVanCompleted.svg'
-import tugVanInprogress from './tugVanInprogress.svg'
-import tugVanRequest from './tugVanRequest.svg'
+import wallet from './wallet.svg';
+import tugvanLogo from './tugvanLogo2.svg';
+import tugVanCompleted from './tugVanCompleted.svg';
+import tugVanInprogress from './tugVanInprogress.svg';
+import tugVanRequest from './tugVanRequest.svg';
 
-import tugVanBattery from './tugVanBattery.svg'
-import tugVanCross from './tugVanCross.svg'
-import tugVanDistance from './tugVanDistance.svg'
-import tugVanFuel from './tugVanFuel.svg'
-import tugVanStar from './tugVanStar.svg'
-import tugVanTyre from './tugVanTyre.svg'
-import tugVanLocation from './tugVanLocation.svg'
-import tugVanCircle from './tugVanCircle.svg'
-import tugVanFare from './tugVanFare.svg'
-import tugVanLeftArrow from './tugVanLeftArrow.svg'
-import tugVanPaymentCardBlue from './tugVanPaymentCardBlue.svg'
-import tugVanFilter from './tugVanFilter.svg'
-import tugVanUparrow from './tugVanUparrow.svg'
+import tugVanBattery from './tugVanBattery.svg';
+import tugVanCross from './tugVanCross.svg';
+import tugVanDistance from './tugVanDistance.svg';
+import tugVanFuel from './tugVanFuel.svg';
+import tugVanStar from './tugVanStar.svg';
+import tugVanTyre from './tugVanTyre.svg';
+import tugVanLocation from './tugVanLocation.svg';
+import tugVanCircle from './tugVanCircle.svg';
+import tugVanFare from './tugVanFare.svg';
+import tugVanLeftArrow from './tugVanLeftArrow.svg';
+import tugVanPaymentCardBlue from './tugVanPaymentCardBlue.svg';
+import tugVanFilter from './tugVanFilter.svg';
+import tugVanUparrow from './tugVanUparrow.svg';
+import tugVanDpf from './dpf.svg';
+import tugVanWindscreen from './windscreen.svg';
+import tugVanKeysLost from './keysLost.svg';
+import tugVanCarRecovery from './carRecovery.svg';
+import tugVanServicing from './servicing.svg';
 export const iconMapping = {
+  tugVanDpf: createElement(tugVanDpf, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanWindscreen: createElement(tugVanWindscreen, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanKeysLost: createElement(tugVanKeysLost, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanCarRecovery: createElement(tugVanCarRecovery, {
+    height: 55,
+    width: 55,
+  }),
   tugVanTyre: createElement(tugVanTyre, {
+    height: 55,
+    width: 55,
+  }),
+  tugVanServicing: createElement(tugVanServicing, {
     height: 55,
     width: 55,
   }),
   tugVanLocation: createElement(tugVanLocation, {
     height: 15,
     width: 15,
-  }), 
+  }),
   tugVanCircle: createElement(tugVanCircle, {
     height: 15,
     width: 15,
@@ -165,7 +190,7 @@ export const iconMapping = {
     height: 45,
     width: 45,
   }),
-  tugVanLogo:createElement(tugvanLogo, {
+  tugVanLogo: createElement(tugvanLogo, {
     height: 41,
     width: 221,
   }),
@@ -345,7 +370,10 @@ export const iconMapping = {
   historyIconPrimary: createElement(historyPrimary),
   checkmark: createElement(checkmark),
   celebrateIcon: createElement(celebrate),
-  sendmark: createElement(send),
+  sendmark: createElement(send, {
+    width: 25,
+    height: 25,
+  }),
   smiley: createElement(smile),
   camera: createElement(camera),
   messagesImage: createElement(messages),

@@ -4,16 +4,18 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import {Colors} from '../../utils/colors';
 import FilterButton from '../filterButton/FilterButton';
 import strings from '../../utils/strings';
-import { styles } from './styles';
+import {styles} from './styles';
 
-export default function FilterBottomSheet({refRBSheet}) {
+export default function FilterBottomSheet({refRBSheet, setFilter}: any) {
   const Types = [
-    'Tyre Fitter',
-    'Wrong Fuel',
-    'Battery Replacment',
-    'Key Lost',
-    'DPF Cleaning',
-    'Car Recovery',
+    {key: 'Tyre Fitter', value: 'TYRE'},
+    {key: 'Wrong Fuel', value: 'FUEL'},
+    {key: 'Battery Replacment', value: 'Battery_Service'},
+    {key: 'Key Lost', value: 'Key_Service'},
+    {key: 'DPF Cleaning', value: 'DPF_Cleaning'},
+    {key: 'Car Recovery', value: 'RECOVERY'},
+    {key: 'Mobile Service', value: 'Mobile_Service'},
+    {key: 'Windscreen Service', value: 'Windscreen_Service'},
   ];
 
   return (
@@ -40,7 +42,7 @@ export default function FilterBottomSheet({refRBSheet}) {
           },
         }}>
         <View style={{padding: 10}}>
-          <View>
+          {/* <View>
             <Text
               style={{
                 fontSize: 17,
@@ -56,7 +58,7 @@ export default function FilterBottomSheet({refRBSheet}) {
                 height: 2,
                 marginVertical: 10,
               }}></View>
-          </View>
+          </View> */}
           <View>
             <Text
               style={{
@@ -68,7 +70,12 @@ export default function FilterBottomSheet({refRBSheet}) {
             </Text>
             <View style={styles.flex}>
               {Types.map((val, index) => (
-                <FilterButton title={val} key={index} />
+                <FilterButton
+                  title={val?.key}
+                  key={index}
+                  value={val}
+                  setFilter={setFilter}
+                />
               ))}
             </View>
 
@@ -82,14 +89,15 @@ export default function FilterBottomSheet({refRBSheet}) {
           <View style={styles.flex}>
             <TouchableOpacity
               style={styles.reset}
-              onPress={() => refRBSheet.current.close()}
-              >
+              onPress={() => {
+                refRBSheet.current.close();
+                setFilter([]);
+              }}>
               <Text style={styles.text}>RESET</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.showResult}
-              onPress={() => refRBSheet.current.close()}
-              >
+              onPress={() => refRBSheet.current.close()}>
               <Text style={styles.text}>SHOW RESULT</Text>
             </TouchableOpacity>
           </View>

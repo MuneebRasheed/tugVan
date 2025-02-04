@@ -6,30 +6,27 @@ import {styles} from './styles';
 import InProgressCard from '../../component/InprogressCard/InprogressCard';
 import {InprogressData} from '../../utils/dummyData';
 import SearchInput from '../../component/searchInput/SearchInput';
-import {
-  socketServcies,
-  socketBiding,
-  socketBooking,
-} from '../../utils/socketService';
-import {APIHANDLER} from '../../services/apiConfig';
-import { useSelector, useDispatch } from 'react-redux';
-const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
-  const companyId = useSelector(state => state.booking.companyId);
-  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>!val?.bids.includes(companyId)&& (val?.status=="BIDDING")) );
-  // console.log("bookings redux",InBiddingData)
- 
-  // socketBooking.on('newBooking', booking => {
-  //   // GetBooking();
-  //   console.log('Recieve booking from socket:......... ', booking);
-  // });
 
+import {APIHANDLER} from '../../services/apiConfig';
+import {useSelector, useDispatch} from 'react-redux';
+const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
+  const companyId = useSelector(state => state.user.companyId);
+  const InBiddingData = useSelector(state =>
+    state.booking.bookings.filter(
+      val => !val?.bids.includes(companyId) && val?.status == 'BIDDING',
+    ),
+  );
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData(InBiddingData);
+  }, [InBiddingData?.length]);
   const GetBooking = () => {
     APIHANDLER('GET', `api/v2/bookings`, null, '').then(value => {
-      if(value?.data?.length>0){
-        console.log(value?.data[0])
+      if (value?.data?.length > 0) {
+        console.log(value?.data[0]);
         SetInBiddingData(value?.data);
       }
-    
+
       console.log('value......', value?.data[0]);
     });
   };
@@ -39,16 +36,20 @@ const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
         backgroundColor={Colors.primaryColors.lightGrey}
         barStyle={'dark-content'}
       />
-      <SearchInput />
+      <SearchInput
+        value={data}
+        setValue={val => setData(val)}
+        copyData={InBiddingData}
+      />
       <ScrollView>
-        {InBiddingData?.length > 0 ? (
-          InBiddingData?.map((val, index) => (
+        {data?.length > 0 ? (
+          data?.map((val, index) => (
             <InProgressCard
               icon={val?.icon}
               name={val?.name}
-              location={val?.reference_id}
-              star={'255/55 R16 '}
-              distance={'30km'}
+              location={val?.from_desc?.split(' ')[0]}
+              star={val?.requirements?.Description}
+              distance={val?.reference_id}
               key={index}
               value={val}
               type={val?.type}
@@ -56,9 +57,8 @@ const InProgressScreen: FC<InProgressScreenPropsTypes> = () => {
           ))
         ) : (
           <View style={styles.notFoundContainer}>
-                   <Text style={styles.text}>No Booking Found </Text>
+            <Text style={styles.text}>No Booking Found </Text>
           </View>
-   
         )}
       </ScrollView>
     </SafeAreaView>

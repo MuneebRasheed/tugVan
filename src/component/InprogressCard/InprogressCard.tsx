@@ -4,13 +4,23 @@ import {styles} from './styles';
 import {iconMapping} from '../../assets/icons/iconMap';
 import strings from '../../utils/strings';
 import {TaskCardPropsTypes} from './types';
-import { useNavigation } from '@react-navigation/native';
-import { ImageAndName } from '../../utils/dummyData';
-const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,distance,value,type}) => {
-  const navigation = useNavigation(); 
-  
+import {useNavigation} from '@react-navigation/native';
+import {ImageAndName} from '../../utils/dummyData';
+const InProgressCard: FC<TaskCardPropsTypes> = ({
+  icon,
+  name,
+  location,
+  star,
+  distance,
+  value,
+  type,
+}) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.earningCardWrapper} onPress={() => navigation.navigate('RecentDetailScreen',{value:value})}>
+    <TouchableOpacity
+      style={styles.earningCardWrapper}
+      onPress={() => navigation.navigate('RecentDetailScreen', {value: value})}>
       <View style={styles.leftHalf}>{ImageAndName(type).image}</View>
       <View style={styles.rightHalf}>
         <View style={styles.firstRow}>
@@ -26,14 +36,16 @@ const InProgressCard: FC<TaskCardPropsTypes> = ({icon, name, location,star,dista
           </View>
           <View style={styles.directionRow}>
             {iconMapping.tugVanDistance}
-            <Text style={styles.textViewAll}>{strings?.distance+': '+distance}</Text>
+            <Text style={styles.textViewAll}>
+              {'Reference Id' + ': ' + distance}
+            </Text>
           </View>
         </View>
         <View style={styles.line}></View>
-        <TouchableOpacity style={styles.directionRow}    >
+        <TouchableOpacity style={styles.directionRow}>
           {iconMapping.tugVanStar}
           <Text style={styles.textViewAll}>
-            {strings?.product+':'+star}
+            {strings?.product + ':' + star}
           </Text>
         </TouchableOpacity>
       </View>

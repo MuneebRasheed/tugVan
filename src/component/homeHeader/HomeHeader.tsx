@@ -13,7 +13,16 @@ const HomeHeader = () => {
     <View style={styles.headerWrapper}>
       <View style={styles.profileSection}>
         <View style={styles.profileImage}>
-          <Image source={Images.profileImage} />
+          <Image
+            source={
+              Info?.data?.companyLogo
+                ? {
+                    uri: Info?.data?.companyLogo,
+                  }
+                : Images.profileImage
+            }
+            style={{height: '100%', width: '100%', resizeMode: 'contain'}}
+          />
         </View>
         <View>
           <Text style={styles.subHeading}>{strings.welocome}</Text>

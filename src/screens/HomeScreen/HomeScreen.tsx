@@ -9,14 +9,19 @@ import {iconMapping} from '../../assets/icons/iconMap';
 import TaskCard from '../../component/taskCard/TaskCard';
 import {TaskCardData} from '../../utils/dummyData';
 import ModalToolTip from '../../component/modal/Modal';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 const HomeScreen: FC<HomeScreenPropsTypes> = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const companyId = useSelector(state => state.booking.companyId);
-  const InBiddingData = useSelector(state => state.booking.bookings.filter(val=>val?.bids?.includes(companyId) && (val?.status=="COMPLETED")));
+
+  const companyId = useSelector(state => state.user.companyId);
+  const InBiddingData = useSelector(state =>
+    state.booking.bookings.filter(
+      val => val?.bids?.includes(companyId) && val?.status == 'COMPLETED',
+    ),
+  );
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -24,7 +29,6 @@ const HomeScreen: FC<HomeScreenPropsTypes> = () => {
         barStyle={'dark-content'}
       />
       <View>
-  
         <HomeHeader />
         <EarningCard />
         <View style={styles.logo}>{iconMapping.tugVanLogo}</View>
@@ -36,13 +40,14 @@ const HomeScreen: FC<HomeScreenPropsTypes> = () => {
               name={task.name}
               count={task.count}
               onPress={toggleModal}
-             
             />
           ))}
         </View>
-      
       </View>
-      <ModalToolTip isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
+      <ModalToolTip
+        isModalVisible={isModalVisible}
+        setModalVisible={setModalVisible}
+      />
     </SafeAreaView>
   );
 };

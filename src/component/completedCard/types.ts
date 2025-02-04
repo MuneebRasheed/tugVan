@@ -1,12 +1,9 @@
 export interface CompletedCardPropsTypes {
-
-    icon?:any,
-    name?:string,
-    location?: any,
-    star?: any,
-    distance?: any,
-    type?:any
-
-   
-   
+  icon?: any;
+  name?: string;
+  location?: any;
+  star?: any;
+  distance?: any;
+  type?: any;
+  fare?: any;
 }
